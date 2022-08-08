@@ -27,10 +27,10 @@ defmodule SophosApp.AdventOfCode.Day1 do
     instructions
     |> String.split("", trim: true)
     |> Enum.map(fun)
-    |> sum(0, 0)
+    |> evaluate(0, 0)
   end
 
-  def sum([h | t], acc, index)when acc != -1, do: sum(t, acc + h, index + 1)
-  def sum(list, acc, index) when list == [] or acc == -1, do: index
+  def evaluate([h | t], accum, index)when accum != -1, do: evaluate(t, accum + h, index + 1)
+  def evaluate(list, accum, index) when list == [] or accum == -1, do: index
 
 end

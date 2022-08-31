@@ -1,5 +1,5 @@
 
-defmodule SophosApp.AdventOfCode.Day1 do
+defmodule SophosApp.AdventOfCode.Day3 do
 
   def deliveryPresent(route) do
     String.split(route,"", trim: true)

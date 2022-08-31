@@ -1,17 +1,28 @@
-defmodule SophosApp.AdventOfCode.Day2 do
+# Dia 1 Ejercicio 1
 
-  def exec(values) do
-    String.split(values, "x")
-    |> Enum.map(&String.to_integer/1)
-    |> areaSup()
+defmodule SquareFeetOfPaper do
+
+  def squareFeet(string) do
+    String.split(string,"\n")
+    |> Enum.map(fn x -> String.split(x,"x", trim: true) end)
+    |> Enum.map(fn x-> Enum.map(x, fn x -> String.to_integer(x) end) end)
+    |> Enum.map(fn [x,y,z] -> {(2*x*y + 2*y*z + 2*x*z), Enum.min([x*y,y*z,z*x])} end)
+    |> Enum.map(fn {x,y} -> x + y  end)
+    |> Enum.reduce(fn x,acc -> x + acc end)
+    |> IO.puts
   end
+end
 
-  defp areaSup([l, w, h]) do
-    area1 = l*w
-    area2 = w*h
-    area3 = h*l
-    minor_area = Enum.min([area1, area2, area3])
-    Enum.sum([area1, area2, area3]) * 2 + minor_area
+# Dia 2 Ejercicio 2
+
+defmodule RibbonCalculator do
+  def ribbon(string) do
+    String.split(string,"\n")
+    |> Enum.map(fn x -> String.split(x,"x", trim: true) end)
+    |> Enum.map(fn x-> Enum.map(x, fn x -> String.to_integer(x) end) end)
+    |> Enum.map(fn [x,y,z] -> {(x*y*z), Enum.min([2*(x+y),2*(y+z),2*(z+x)])} end)
+    |> Enum.map(fn {x,y} -> x + y  end)
+    |> Enum.reduce(fn x,acc -> x + acc end)
+    |> IO.puts
   end
-
 end

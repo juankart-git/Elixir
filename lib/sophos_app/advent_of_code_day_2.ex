@@ -1,7 +1,9 @@
-# Dia 1 Ejercicio 1
+# Dia 2
 
-defmodule SquareFeetOfPaper do
+defmodule SophosApp.AdventOfCode.Day2 do
 
+  # Ejercicio 1
+  
   def squareFeet(string) do
     String.split(string,"\n")
     |> Enum.map(fn x -> String.split(x,"x", trim: true) end)
@@ -11,11 +13,9 @@ defmodule SquareFeetOfPaper do
     |> Enum.reduce(fn x,acc -> x + acc end)
     |> IO.puts
   end
-end
-
-# Dia 2 Ejercicio 2
-
-defmodule RibbonCalculator do
+  
+  # Ejercicio 2
+  
   def ribbon(string) do
     String.split(string,"\n")
     |> Enum.map(fn x -> String.split(x,"x", trim: true) end)
@@ -25,4 +25,7 @@ defmodule RibbonCalculator do
     |> Enum.reduce(fn x,acc -> x + acc end)
     |> IO.puts
   end
+  
 end
+
+
